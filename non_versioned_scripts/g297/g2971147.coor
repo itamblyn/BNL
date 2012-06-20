@@ -1,0 +1,32 @@
+ The geometries for most of the neutrals needed for calculating
+ the IPs, EAs, and PAs are included in the G2/97 neutral
+ test set located elsewhere on this website.
+
+no. of atomic species:36
+H, Li, Be, B, C, N, O, F, Na, Mg, Al, Si, P, S, Cl, Li+, Be+, B+, 
+C+, N+, O+, F+, Na+, Mg+, Al+, Si+, P+, S+, Cl+,C-, O-, F-, Si-, P-, 
+S-, Cl-
+
+no of molecules: 52
+CH4+, NH3+, OH+, OH2+, FH+, SiH4+, PH+, PH2+, PH3+, SH+, SH2+(2B1), 
+SH2+(2A1), ClH+, C2H2+, C2H4+, CO+, N2+(2Sig), N2+(2Pi), O2+, P2+, 
+S2+, Cl2+, ClF+, CS+,CH-, CH2-, CH3-, NH-, NH2-, OH-, SiH-, SiH2-, 
+SiH3-, PH-, PH2-, SH-, O2-, NO-, CN-, PO-, S2-, Cl2-, NH4+, OH3+, 
+C2H3+, SiH5+, PH4+, SH3+, ClH2+, PO, PH, SiH
+
+notes:
+P2+: 2-Pi state, alter B 14,15
+PO: scf=qc on 6-31g* initial guess
+
+
+%mem=5000000
+%chk=filename
+# hf/6-31g*
+
+h 
+
+0 2
+h
+
+@inputbasis.gbs
+

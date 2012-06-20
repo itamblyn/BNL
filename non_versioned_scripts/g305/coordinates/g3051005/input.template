@@ -1,0 +1,152 @@
+ 
+$molecule
+-1,2
+f1
+h1 f1 rh1
+f2 f1 rf2 h1 af2
+h2 f2 rh2 f1 ah2 h1 th2
+
+rh1=0.92614243
+ rf2=2.51332621
+ af2=46.71923651
+ rh2=0.92602852
+ ah2=47.03389685
+ th2=179.99118091
+
+$end
+
+$comment
+negative
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL
+   CORRELATION none
+   SEPARATE_JK TRUE
+   OMEGA xOMEGA 
+   DERSCREEN FALSE
+   IDERIV 0
+   UNRESTRICTED TRUE
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
+@@@
+ 
+$molecule
+0,1
+f1
+h1 f1 rh1
+f2 f1 rf2 h1 af2
+h2 f2 rh2 f1 ah2 h1 th2
+
+rh1=0.92614243
+ rf2=2.51332621
+ af2=46.71923651
+ rh2=0.92602852
+ ah2=47.03389685
+ th2=179.99118091
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL
+   CORRELATION none
+   SEPARATE_JK TRUE
+   OMEGA xOMEGA 
+   DERSCREEN FALSE
+   IDERIV 0
+   UNRESTRICTED TRUE
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
+@@@
+ 
+$molecule
+1,2
+f1
+h1 f1 rh1
+f2 f1 rf2 h1 af2
+h2 f2 rh2 f1 ah2 h1 th2
+
+rh1=0.92614243
+ rf2=2.51332621
+ af2=46.71923651
+ rh2=0.92602852
+ ah2=47.03389685
+ th2=179.99118091
+
+$end
+
+$comment
+positive
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL  ! bnl
+   CORRELATION none  ! bnl
+   SEPARATE_JK TRUE  ! bnl
+   OMEGA xOMEGA      ! bnl
+   DERSCREEN FALSE   ! bnl
+   IDERIV 0          ! bnl
+   UNRESTRICTED TRUE ! bnl
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+

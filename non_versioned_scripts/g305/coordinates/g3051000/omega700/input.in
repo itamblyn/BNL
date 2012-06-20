@@ -1,0 +1,176 @@
+ 
+$molecule
+-1,2
+o1
+o2 o1 ro2
+h1 o1 rh1 o2 ah1
+h2 o1 rh2 h1 ah2 o2 th2
+h3 o2 rh3 o1 ah3 h1 th3
+h4 o2 rh4 o1 ah4 h3 th4
+
+ro2=2.79770423
+ rh1=0.96253559
+ ah1=110.86290081
+ rh2=0.96669401
+ ah2=103.9936596
+ th2=-43.15008595
+ rh3=0.9664807
+ ah3=43.37967231
+ th3=92.04687013
+ rh4=0.96262172
+ ah4=110.50813408
+ th4=88.85631445
+
+$end
+
+$comment
+negative
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL
+   CORRELATION none
+   SEPARATE_JK TRUE
+   OMEGA 700 
+   DERSCREEN FALSE
+   IDERIV 0
+   UNRESTRICTED TRUE
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
+@@@
+ 
+$molecule
+0,1
+o1
+o2 o1 ro2
+h1 o1 rh1 o2 ah1
+h2 o1 rh2 h1 ah2 o2 th2
+h3 o2 rh3 o1 ah3 h1 th3
+h4 o2 rh4 o1 ah4 h3 th4
+
+ro2=2.79770423
+ rh1=0.96253559
+ ah1=110.86290081
+ rh2=0.96669401
+ ah2=103.9936596
+ th2=-43.15008595
+ rh3=0.9664807
+ ah3=43.37967231
+ th3=92.04687013
+ rh4=0.96262172
+ ah4=110.50813408
+ th4=88.85631445
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL
+   CORRELATION none
+   SEPARATE_JK TRUE
+   OMEGA 700 
+   DERSCREEN FALSE
+   IDERIV 0
+   UNRESTRICTED TRUE
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
+@@@
+ 
+$molecule
+1,2
+o1
+o2 o1 ro2
+h1 o1 rh1 o2 ah1
+h2 o1 rh2 h1 ah2 o2 th2
+h3 o2 rh3 o1 ah3 h1 th3
+h4 o2 rh4 o1 ah4 h3 th4
+
+ro2=2.79770423
+ rh1=0.96253559
+ ah1=110.86290081
+ rh2=0.96669401
+ ah2=103.9936596
+ th2=-43.15008595
+ rh3=0.9664807
+ ah3=43.37967231
+ th3=92.04687013
+ rh4=0.96262172
+ ah4=110.50813408
+ th4=88.85631445
+
+$end
+
+$comment
+positive
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL  ! bnl
+   CORRELATION none  ! bnl
+   SEPARATE_JK TRUE  ! bnl
+   OMEGA 700      ! bnl
+   DERSCREEN FALSE   ! bnl
+   IDERIV 0          ! bnl
+   UNRESTRICTED TRUE ! bnl
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+

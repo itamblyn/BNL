@@ -1,0 +1,6 @@
+I started keeping the intermediat directories (in the form of g305) for that db on
+
+####
+
+g2g7 of 03-coor_to_input assumes a , between charge and multiplity
+g305 of 03-coor_to_input checks for an extra line in the top of a .coor file, and can deal with , or space between charge and multiplictiy

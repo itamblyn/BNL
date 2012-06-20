@@ -1,0 +1,35 @@
+
+$comment
+positive
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   SYMMETRY_DECOMPOSITION 0
+   EXCHANGE GENERAL  
+   CORRELATION none  
+   SEPARATE_JK TRUE  
+   OMEGA xOMEGA      
+   DERSCREEN FALSE   
+   IDERIV 0          
+   UNRESTRICTED TRUE 
+   JOBTYPE sp
+   BASIS G3large 
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+

@@ -1,0 +1,22 @@
+#PBS -N g2_gamma_opt
+#PBS -l nodes=8:ppn=2:nano2
+#PBS -q nano2
+#PBS -o job.out
+#PBS -e job.err
+#PBS -l walltime=24:00:00
+
+module load QChem/3202
+
+cd $PBS_O_WORKDIR
+
+export NP=`cat $PBS_NODEFILE | wc -l`
+
+
+for omega in omega*
+ do
+  cd $omega
+  export QCSCRATCH=`pwd`
+  export PBS_O_WORKDIR=`pwd`
+  $QC/bin/qchem -pbs -save -np $NP input.in qchem.out scratch
+  cd ..
+done

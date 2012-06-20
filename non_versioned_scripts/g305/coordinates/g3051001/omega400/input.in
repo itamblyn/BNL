@@ -1,0 +1,248 @@
+ 
+$molecule
+-1,2
+o1
+o2 o1 ro2
+c1 o1 rc1 o2 ac1
+c2 o2 rc2 o1 ac2 c1 tc2
+h1 o1 rh1 c1 ah1 o2 th1
+h2 o2 rh2 c2 ah2 o1 th2
+h3 c1 rh3 o1 ah3 h1 th3
+h4 c1 rh4 o1 ah4 h3 th4
+h5 c1 rh5 o1 ah5 h3 th5
+h6 c2 rh6 o2 ah6 h1 th6
+h7 c2 rh7 o2 ah7 h6 th7
+h8 c2 rh8 o2 ah8 h6 th8
+
+ro2=2.84112714
+ rc1=1.40994328
+ ac1=116.07321499
+ rc2=1.42801979
+ ac2=93.34426716
+ tc2=-90.57073239
+ rh1=0.96955828
+ ah1=108.19650256
+ th1=12.8864112
+ rh2=0.96273101
+ ah2=107.82121502
+ th2=98.72341899
+ rh3=1.09470453
+ ah3=107.62121608
+ th3=178.70334122
+ rh4=1.10137332
+ ah4=112.86252549
+ th4=118.70410145
+ rh5=1.10175374
+ ah5=112.96995529
+ th5=-118.70092874
+ rh6=1.09691227
+ ah6=111.66913634
+ th6=-156.69183998
+ rh7=1.09639202
+ ah7=111.63035047
+ th7=123.22912488
+ rh8=1.09247495
+ ah8=106.66573706
+ th8=-118.29870691
+
+$end
+
+$comment
+negative
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL
+   CORRELATION none
+   SEPARATE_JK TRUE
+   OMEGA 400 
+   DERSCREEN FALSE
+   IDERIV 0
+   UNRESTRICTED TRUE
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
+@@@
+ 
+$molecule
+0,1
+o1
+o2 o1 ro2
+c1 o1 rc1 o2 ac1
+c2 o2 rc2 o1 ac2 c1 tc2
+h1 o1 rh1 c1 ah1 o2 th1
+h2 o2 rh2 c2 ah2 o1 th2
+h3 c1 rh3 o1 ah3 h1 th3
+h4 c1 rh4 o1 ah4 h3 th4
+h5 c1 rh5 o1 ah5 h3 th5
+h6 c2 rh6 o2 ah6 h1 th6
+h7 c2 rh7 o2 ah7 h6 th7
+h8 c2 rh8 o2 ah8 h6 th8
+
+ro2=2.84112714
+ rc1=1.40994328
+ ac1=116.07321499
+ rc2=1.42801979
+ ac2=93.34426716
+ tc2=-90.57073239
+ rh1=0.96955828
+ ah1=108.19650256
+ th1=12.8864112
+ rh2=0.96273101
+ ah2=107.82121502
+ th2=98.72341899
+ rh3=1.09470453
+ ah3=107.62121608
+ th3=178.70334122
+ rh4=1.10137332
+ ah4=112.86252549
+ th4=118.70410145
+ rh5=1.10175374
+ ah5=112.96995529
+ th5=-118.70092874
+ rh6=1.09691227
+ ah6=111.66913634
+ th6=-156.69183998
+ rh7=1.09639202
+ ah7=111.63035047
+ th7=123.22912488
+ rh8=1.09247495
+ ah8=106.66573706
+ th8=-118.29870691
+
+$end
+
+$comment
+neutral
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL
+   CORRELATION none
+   SEPARATE_JK TRUE
+   OMEGA 400 
+   DERSCREEN FALSE
+   IDERIV 0
+   UNRESTRICTED TRUE
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
+@@@
+ 
+$molecule
+1,2
+o1
+o2 o1 ro2
+c1 o1 rc1 o2 ac1
+c2 o2 rc2 o1 ac2 c1 tc2
+h1 o1 rh1 c1 ah1 o2 th1
+h2 o2 rh2 c2 ah2 o1 th2
+h3 c1 rh3 o1 ah3 h1 th3
+h4 c1 rh4 o1 ah4 h3 th4
+h5 c1 rh5 o1 ah5 h3 th5
+h6 c2 rh6 o2 ah6 h1 th6
+h7 c2 rh7 o2 ah7 h6 th7
+h8 c2 rh8 o2 ah8 h6 th8
+
+ro2=2.84112714
+ rc1=1.40994328
+ ac1=116.07321499
+ rc2=1.42801979
+ ac2=93.34426716
+ tc2=-90.57073239
+ rh1=0.96955828
+ ah1=108.19650256
+ th1=12.8864112
+ rh2=0.96273101
+ ah2=107.82121502
+ th2=98.72341899
+ rh3=1.09470453
+ ah3=107.62121608
+ th3=178.70334122
+ rh4=1.10137332
+ ah4=112.86252549
+ th4=118.70410145
+ rh5=1.10175374
+ ah5=112.96995529
+ th5=-118.70092874
+ rh6=1.09691227
+ ah6=111.66913634
+ th6=-156.69183998
+ rh7=1.09639202
+ ah7=111.63035047
+ th7=123.22912488
+ rh8=1.09247495
+ ah8=106.66573706
+ th8=-118.29870691
+
+$end
+
+$comment
+positive
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+   EXCHANGE GENERAL  ! bnl
+   CORRELATION none  ! bnl
+   SEPARATE_JK TRUE  ! bnl
+   OMEGA 400      ! bnl
+   DERSCREEN FALSE   ! bnl
+   IDERIV 0          ! bnl
+   UNRESTRICTED TRUE ! bnl
+   JOBTYPE sp
+   BASIS 6-31G*
+   SCF_PRINT 1
+   PDB_PRINT 2
+   INCDFT false
+   VARTHRESH 0
+   MAX_SCF_CYCLES 1000
+   MEM_STATIC 256
+   MEM_TOTAL 3000
+   THRESH 140
+   ITHRSH 14
+   XC_GRID 75000302
+   SCF_CONVERGENCE 6
+$end
+
