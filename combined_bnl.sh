@@ -1,5 +1,7 @@
 #!/bin/tcsh
 
+# ALERT: for the neutral species, there are no beta spin values, so the E_HOMO is for the next charge state...
+
 #
 # alpha homo, beta homo, e
 #
@@ -10,7 +12,7 @@ setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
 
 
 
-foreach r ( omega??0 omega???0 )
+foreach r ( omega??? omega???0 )
  cd $r
  echo $r | sed s/omega//g | awk '{printf $1/1000." "}' > bnl.dat
  grep -B 1 "\-\- Virtual" output.out | awk '{print $NF}' | grep "\." | head -2           | awk '{alpha=$1;getline;beta=$1;printf alpha" "beta" "}' >> bnl.dat 
