@@ -1,0 +1,24 @@
+
+$comment
+negative
+$end
+
+$xc_functional
+   X HF 1.0
+   X BNL 1.0
+   C LYP 1.0
+$end
+
+$rem
+SYMMETRY_DECOMPOSITION	0
+exchange 		general
+BASIS                   g3large
+omega			xOMEGA
+separate_jk		true
+mem_static              760
+max_scf_cycles          200
+scf_final_print         1
+sym_ignore              true
+$end
+
+@@@
