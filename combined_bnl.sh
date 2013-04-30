@@ -6,9 +6,9 @@
 # alpha homo, beta homo, e
 #
 
-set PYTHON=/usr/local/python
-setenv PATH $PYTHON/bin:$PATH
-setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
+#set PYTHON=/usr/local/python
+#setenv PATH $PYTHON/bin:$PATH
+#setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
 
 
 
@@ -30,9 +30,9 @@ end
 
 cat omega???/bnl.dat omega????/bnl.dat > bnl.dat
 
-python $HOME/bnl/j_gamma.py > j.dat
-python $HOME/bnl/i_gamma.py > i.dat
-python $HOME/bnl/homo_check.py > homo.dat
+python $HOME/git/BNL/j_gamma.py > j.dat
+python $HOME/git/BNL/i_gamma.py > i.dat
+python $HOME/git/BNL/homo_check.py > homo.dat
 
 set cmd="~/gnuplot.scr"
 cat > $cmd << END
@@ -40,7 +40,7 @@ set xlabel 'gamma'
 set ylabel 'Energy [eV]'
 set xrange [0:*]
 set yrange [0:*]
-set data style linespoints
+set style data linespoints
 set nokey
 set title "`pwd`"
 set terminal png
@@ -59,7 +59,7 @@ set xlabel 'gamma'
 set ylabel 'Energy [eV]'
 set xrange [0:*]
 set yrange [*:*]
-set data style linespoints
+set style data linespoints
 set title "`pwd`"
 set terminal png
 set output 'Ediff.png'
@@ -77,7 +77,7 @@ set xlabel 'gamma'
 set ylabel 'Energy [eV]'
 set xrange [0:*]
 set yrange [*:*]
-set data style linespoints
+set style data linespoints
 set nokey
 set title "`pwd`"
 set terminal png
@@ -96,7 +96,7 @@ set xlabel 'gamma'
 set ylabel 'Energy [eV]'
 set xrange [0:*]
 set yrange [*:*]
-set data style linespoints
+set style data linespoints
 set title "`pwd`"
 set terminal png
 set output 'homo.png'
