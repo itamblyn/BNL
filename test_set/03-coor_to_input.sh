@@ -32,7 +32,7 @@ if ([charge,multiplicity] == [0,3]):
 END
 
 
-foreach molecule_id ( bda_cis )
+foreach molecule_id ( g2g* )
 
 cd $molecule_id
 
