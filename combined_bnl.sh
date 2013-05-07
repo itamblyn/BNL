@@ -10,7 +10,7 @@
 #setenv PATH $PYTHON/bin:$PATH
 #setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
 
-
+module load python
 
 foreach r ( omega??? omega???0 )
  cd $r

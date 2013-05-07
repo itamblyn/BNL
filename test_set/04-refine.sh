@@ -1,8 +1,10 @@
 #!/bin/tcsh
 
-set PYTHON=/usr/local/python
-setenv PATH $PYTHON/bin:$PATH
-setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
+#set PYTHON=/usr/local/python
+#setenv PATH $PYTHON/bin:$PATH
+#setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
+
+module load python
 
 #$HOME/bnl/combined_bnl.sh
 
