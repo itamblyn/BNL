@@ -75,7 +75,7 @@ set cmd="~/gnuplot.scr"
 cat > $cmd << END
 set xlabel 'gamma'
 set ylabel 'Energy [eV]'
-set xrange [0:*]
+set xrange [0:2]
 set yrange [*:*]
 set style data linespoints
 set nokey

@@ -32,7 +32,9 @@ if ([charge,multiplicity] == [0,3]):
 END
 
 
+<<<<<<< HEAD
 foreach molecule_id ( g* )
+=======
 
 cd $molecule_id
 

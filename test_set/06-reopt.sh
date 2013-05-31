@@ -1,8 +1,10 @@
-#!/bin/tcsh
+#!/bin/bash
 
-set RANDOM=`head -c 1 /dev/urandom | od | awk '{printf $2}'`
 
-set cmd="$HOME/.python.tmp.py.$RANDOM"
+RANDOM=`head -c 1 /dev/urandom | od | awk '{printf $2}'`
+
+cmd="$HOME/.python.tmp.py.$RANDOM"
+
 cat > $cmd << END
 
 import sys
@@ -32,47 +34,54 @@ if ([charge,multiplicity] == [0,3]):
 END
 
 
-foreach molecule_id ( g* )
+for molecule_id in g2g7*
+do
 
 cd $molecule_id
 
 echo $molecule_id
 
-echo " " > input.template
-echo '$molecule'            >> input.template
-python $cmd *.coor negative >> input.template
-tail -n +2 *.coor           >> input.template
-echo '$end'                 >> input.template
-cat ../input.template.0     >> input.template
-echo " "                    >> input.template
-echo '$molecule'            >> input.template
-python $cmd *.coor neutral  >> input.template
-tail -n +2 *.coor           >> input.template
-echo '$end'                 >> input.template
-cat ../input.template.1     >> input.template
-echo " "                    >> input.template
-echo '$molecule'            >> input.template
-python $cmd *.coor positive >> input.template
-tail -n +2 *.coor           >> input.template
-echo '$end'                 >> input.template
-cat ../input.template.2     >> input.template
+cd omega_opt_ideriv
+  rm output.xyz
+  /usr/local/openbabel-2.3.1/bin/obabel -i qcout output.out -o xyz -O output.xyz
+  head -1 ../*.coor > opt.coor # grab spin and mult from parent
+  tail -n +3 output.xyz >> opt.coor # skip over xyz header
 
-foreach omega ( omega100 omega200 omega300 omega400 omega500 omega600 omega700 omega800 omega900 omega1000 omega2000 )
+  echo " " > input.template
+  echo '$molecule'              >> input.template
+  python $cmd *.coor negative   >> input.template
+  tail -n +2 *.coor             >> input.template
+  echo '$end'                   >> input.template
+  cat ../../input.template.0    >> input.template
+  echo " "                      >> input.template
+  echo '$molecule'              >> input.template
+  python $cmd *.coor neutral    >> input.template
+  tail -n +2 *.coor             >> input.template
+  echo '$end'                   >> input.template
+  cat ../../input.template.1    >> input.template
+  echo " "                      >> input.template
+  echo '$molecule'              >> input.template
+  python $cmd *.coor positive   >> input.template
+  tail -n +2 *.coor             >> input.template
+  echo '$end'                   >> input.template
+  cat ../../input.template.2    >> input.template
 
-  rm -rf $omega
-  mkdir $omega
+  for omega in omega100 omega200 omega300 omega400 omega500 omega600 omega700 omega800 omega900 omega1000 omega2000
+  do
+    rm -rf $omega
+    mkdir $omega
 
-  cd $omega
+    cd $omega
 
-    set OMEGA=`echo $omega | sed s/omega//g`
-    sed s/xOMEGA/"$OMEGA"/g ../input.template > input.in
+      OMEGA=`echo $omega | sed s/omega//g`
+      sed s/xOMEGA/"$OMEGA"/g ../input.template > input.in
 
-  cd ..
+    cd ..
+  done
 
-end
+cd .. # should jump out of opt dir
 
 cd ..
 
-end
-
+done
 \rm $cmd

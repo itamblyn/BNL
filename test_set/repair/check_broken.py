@@ -2,9 +2,9 @@
 
 import sys, os, commands
 
-issue_command = commands.getoutput('grep p4_error */*/output* | sed s/"output"/" "/g | awk \'{print $1}\'  > broken.tmp')
+issue_command = commands.getoutput('find .\/ -name output* | xargs grep p4_error | sed s/"output"/" "/g | awk \'{print $1}\'  > broken.tmp')
 issue_command = commands.getoutput('echo "Conv fail" >> broken.tmp')
-issue_command = commands.getoutput('grep "Convergence failure" */*/output* | sed s/"output"/" "/g | awk \'{print $1}\'  >> broken.tmp')
+issue_command = commands.getoutput('find ./ -name output* | xargs grep "Convergence failure" | sed s/"output"/" "/g | awk \'{print $1}\'  >> broken.tmp')
 
 
 inputFile = open('broken.tmp','r')

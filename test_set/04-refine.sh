@@ -52,7 +52,7 @@ foreach directory (`echo "$list"`)
   cd $directory
     set OMEGA=`echo "$directory" | sed s/omega//g`
     sed s/xOMEGA/"$OMEGA"/g ../input.template > input.in
-    /opt/n1ge/bin/lx24-amd64/qsub -N "$xname" ~/submit/qchem.s
+    /opt/n1ge/bin/lx24-amd64/qsub -N "$xname" ~/submit/qchem_SOF.s
   cd ..
 
 end
