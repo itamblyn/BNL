@@ -32,9 +32,7 @@ if ([charge,multiplicity] == [0,3]):
 END
 
 
-<<<<<<< HEAD
-foreach molecule_id ( g* )
-=======
+foreach molecule_id ( g2g71026 )
 
 cd $molecule_id
 

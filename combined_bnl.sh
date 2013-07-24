@@ -10,6 +10,8 @@
 #setenv PATH $PYTHON/bin:$PATH
 #setenv LD_LIBRARY_PATH $PYTHON/lib:$LD_LIBRARY_PATH
 
+echo "This script does not work with doublets..."
+
 module load python
 
 foreach r ( omega??? omega???0 )

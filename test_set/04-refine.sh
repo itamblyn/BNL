@@ -6,7 +6,7 @@
 
 module load python
 
-#$HOME/bnl/combined_bnl.sh
+$HOME/git/BNL/combined_bnl.sh
 
 set RANDOM=`head -c 1 /dev/urandom | od | awk '{printf $2}'`
 set cmd=$HOME/.python.tmp.py.$RANDOM

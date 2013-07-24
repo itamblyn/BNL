@@ -32,6 +32,8 @@ print output_string
 
 END
 
+$HOME/git/BNL/combined_bnl.sh
+
 OMEGA=`python $cmd | sed s/omega//g`
 
 rm -rf omega_opt_ideriv
@@ -55,7 +57,7 @@ cat opt.in freq.in > input.in
 rm opt.in freq.in
 
 
-/opt/n1ge/bin/lx24-amd64/qsub -N "$dir" ~/submit/qchem.s
+/opt/n1ge/bin/lx24-amd64/qsub -N "$dir" ~/submit/qchem_SOF.s
 
 cd ..
 

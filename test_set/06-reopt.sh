@@ -33,16 +33,7 @@ if ([charge,multiplicity] == [0,3]):
 
 END
 
-
-for molecule_id in g2g7*
-do
-
-cd $molecule_id
-
-echo $molecule_id
-
-cd omega_opt_ideriv
-  rm output.xyz
+  rm -f output.xyz
   /usr/local/openbabel-2.3.1/bin/obabel -i qcout output.out -o xyz -O output.xyz
   head -1 ../*.coor > opt.coor # grab spin and mult from parent
   tail -n +3 output.xyz >> opt.coor # skip over xyz header
@@ -52,19 +43,19 @@ cd omega_opt_ideriv
   python $cmd *.coor negative   >> input.template
   tail -n +2 *.coor             >> input.template
   echo '$end'                   >> input.template
-  cat ../../input.template.0    >> input.template
+  cat $HOME/git/BNL/test_set/templates/input.template.wPBE.0 >> input.template
   echo " "                      >> input.template
   echo '$molecule'              >> input.template
   python $cmd *.coor neutral    >> input.template
   tail -n +2 *.coor             >> input.template
   echo '$end'                   >> input.template
-  cat ../../input.template.1    >> input.template
+  cat $HOME/git/BNL/test_set/templates/input.template.wPBE.1 >> input.template
   echo " "                      >> input.template
   echo '$molecule'              >> input.template
   python $cmd *.coor positive   >> input.template
   tail -n +2 *.coor             >> input.template
   echo '$end'                   >> input.template
-  cat ../../input.template.2    >> input.template
+  cat $HOME/git/BNL/test_set/templates/input.template.wPBE.2 >> input.template
 
   for omega in omega100 omega200 omega300 omega400 omega500 omega600 omega700 omega800 omega900 omega1000 omega2000
   do
@@ -75,13 +66,9 @@ cd omega_opt_ideriv
 
       OMEGA=`echo $omega | sed s/omega//g`
       sed s/xOMEGA/"$OMEGA"/g ../input.template > input.in
+      /opt/n1ge/bin/lx24-amd64/qsub -N "$omega" ~/submit/qchem_SOF.s
 
     cd ..
   done
 
-cd .. # should jump out of opt dir
-
-cd ..
-
-done
 \rm $cmd
