@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
 import glob, os
+import numpy as np
+import matplotlib.pyplot as plt
 
 parent = os.getcwd()
-os.system('rm -f sofrsh.dat')
+os.system('rm -f freq_sofrsh.dat')
+
+percent_difference_array = []
 
 def digger():
     if os.path.exists('omega_opt_ideriv'):
@@ -41,10 +45,38 @@ def main():
       os.chdir(dir)
       digger()  # this will dig down until it hits the bottom opt directory
       os.system('grep "Frequency:" output.out > freq.dat')
-      cleaner()
+      cleaner() # removes the work Frequency
       os.system('cat freq.dat >> ' + parent + '/freq_sofrsh.dat')
-      print os.getcwd()
+
+      sofrshFile = open('freq.dat','r')
+      b3lypFile = open(parent + '/' + dir + '/b3lyp_opt/freq.dat', 'r')
+  
+      sofrsh = []
+
+      for line in sofrshFile.readlines():
+           for value in line.split():
+               sofrsh.append(float(value))
+      sofrshFile.close()
+
+      b3lyp = []
+
+      for line in b3lypFile.readlines():
+           for value in line.split():
+               b3lyp.append(float(value))
+      b3lypFile.close()
+
+#      print 'sofrsh' , sofrsh
+#      print 'b3lyp' , b3lyp
+
+      if len(sofrsh) == len(b3lyp):
+          for i in range(len(sofrsh)):
+              percent_difference = np.around( ((b3lyp[i]-sofrsh[i])/b3lyp[i])*100, 2)
+              percent_difference_array.append(percent_difference)
+
+#      print os.getcwd()
       os.chdir(parent)
 
+  plt.hist(percent_difference_array, bins=np.arange(-20,20,1))
+  plt.show()
 if __name__ == '__main__':
     main()
