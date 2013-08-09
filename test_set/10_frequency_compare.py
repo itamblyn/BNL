@@ -2,7 +2,7 @@
 
 import glob, os
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 parent = os.getcwd()
 os.system('rm -f freq_sofrsh.dat')
@@ -12,7 +12,7 @@ percent_difference_array = []
 def digger():
     if os.path.exists('omega_opt_ideriv'):
         os.chdir('omega_opt_ideriv')
-        digger()
+        digger() # recursive, keep digging
     else:
         return
 
@@ -24,13 +24,11 @@ def cleaner():
     for line in inputFile.readlines():
         data = line.split()
         data.pop(0)
-        freq +=data
+        freq +=data   # removes the first element, which is leftover from grep
 
     inputFile.close()
 
     outputFile = open('freq.dat','w')
-
-    freq.sort
 
     for frequency in freq:
         outputFile.write(frequency+' ')
@@ -65,18 +63,29 @@ def main():
                b3lyp.append(float(value))
       b3lypFile.close()
 
-#      print 'sofrsh' , sofrsh
-#      print 'b3lyp' , b3lyp
-
       if len(sofrsh) == len(b3lyp):
+          mol_pd_bad = []
           for i in range(len(sofrsh)):
-              percent_difference = np.around( ((b3lyp[i]-sofrsh[i])/b3lyp[i])*100, 2)
+              percent_difference = np.around(((b3lyp[i]-sofrsh[i])/b3lyp[i])*100, 2)
               percent_difference_array.append(percent_difference)
 
-#      print os.getcwd()
+              pd_tolerance = 10.0
+              if abs(percent_difference) > pd_tolerance:
+                  mol_pd_bad.append(percent_difference)
+
+          if len(mol_pd_bad) > 0:
+              fraction_bad = float(len(mol_pd_bad))/float(len(sofrsh))
+              print 'id= ', dir, ' fraction[', np.around(fraction_bad, 2),'] of ',len(sofrsh),' worst=',np.around(max(mol_pd_bad),1),'%'
+      
       os.chdir(parent)
 
-  plt.hist(percent_difference_array, bins=np.arange(-20,20,1))
-  plt.show()
+  hist, bins = np.histogram(percent_difference_array, bins=np.arange(-50,50,1))
+  histFile = open('hist.dat','w')
+
+  for i in range(len(hist)):
+      histFile.write(str(bins[i]) + ' ' + str(hist[i]) + '\n')  
+  histFile.close() 
+#  plt.hist(percent_difference_array, bins=np.arange(-20,20,1))
+#  plt.show()
 if __name__ == '__main__':
     main()
