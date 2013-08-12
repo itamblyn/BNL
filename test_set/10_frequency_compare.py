@@ -2,10 +2,10 @@
 
 import glob, os
 import numpy as np
-#import matplotlib.pyplot as plt
 
 parent = os.getcwd()
 os.system('rm -f freq_sofrsh.dat')
+os.system('rm -f zpe_sofrsh.dat')
 
 percent_difference_array = []
 
@@ -43,7 +43,12 @@ def main():
       os.chdir(dir)
       digger()  # this will dig down until it hits the bottom opt directory
       os.system('grep "Frequency:" output.out > freq.dat')
-      cleaner() # removes the work Frequency
+      cleaner() # removes the word Frequency
+      zpeFile = open('zpe.dat','w')
+      zpeFile.write(dir + ' ')
+      zpeFile.close()
+      os.system('grep "Zero" output.out | awk \'{print $5*349.75}\' >> zpe.dat')
+      os.system('cat zpe.dat >> ' + parent + '/zpe_sofrsh.dat')
       os.system('cat freq.dat >> ' + parent + '/freq_sofrsh.dat')
 
       sofrshFile = open('freq.dat','r')
@@ -80,6 +85,8 @@ def main():
       os.chdir(parent)
 
   hist, bins = np.histogram(percent_difference_array, bins=np.arange(-50,50,1))
+  print 'Average difference = ', np.average(percent_difference_array)
+  print 'RMSE = ', (np.dot(percent_difference_array, percent_difference_array)/len(percent_difference_array))**.5
   histFile = open('hist.dat','w')
 
   for i in range(len(hist)):

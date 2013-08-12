@@ -32,6 +32,7 @@ cd $dir
 cd b3lyp_opt
 pwd
 grep "Frequency:" output.out > freq.dat
+grep "Zero" output.out | awk '{print $5*349.75}' > zpe.dat
 python $parent/cleaner.py
 cd ..
 cd ..
